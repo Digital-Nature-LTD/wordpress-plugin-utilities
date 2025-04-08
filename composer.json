@@ -1,0 +1,17 @@
+{
+    "name": "digital-nature/utilities",
+    "description": "Provides utilities for use with WordPress, plus the Digital Nature menu item and associated roles",
+    "type": "wordpress-plugin",
+    "autoload": {
+        "psr-4": {
+            "DigitalNature\\Utilities\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Digital Nature",
+            "email": "hello@digital-nature.co.uk"
+        }
+    ],
+    "require": {}
+}
