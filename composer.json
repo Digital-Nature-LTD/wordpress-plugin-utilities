@@ -13,5 +13,7 @@
             "email": "hello@digital-nature.co.uk"
         }
     ],
-    "require": {}
+    "require": {
+        "digital-nature/wordpress-utilities": "^0.0.1"
+    }
 }

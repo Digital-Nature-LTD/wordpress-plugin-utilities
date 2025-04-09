@@ -56,7 +56,7 @@ require_once DN_UTILITIES_PLUGIN_DIR . 'vendor/autoload.php';
 /**
  * Bring in the bootstrap class
  *
- * @return  Bootstrap|object
+ * @return  DigitalNature\Utilities\Bootstrap|object
  * @since   1.0.0
  * @author  Gareth Midwood
  */
