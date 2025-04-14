@@ -4,6 +4,7 @@ namespace DigitalNature\Utilities\Common\Users\Roles;
 
 use DigitalNature\Utilities\Common\Users\Capabilities\DigitalNatureMenuCapability;
 use DigitalNature\Utilities\Common\Users\Capabilities\DigitalNatureModelNotesCapability;
+use DigitalNature\Utilities\Common\Users\Capabilities\ReadCapability;
 use DigitalNature\WordPressUtilities\Common\Users\Roles\BaseRole;
 
 class DigitalNatureAdminRole extends BaseRole
@@ -31,7 +32,8 @@ class DigitalNatureAdminRole extends BaseRole
 	{
 		return [
 			DigitalNatureMenuCapability::get_capability_name(),
-            DigitalNatureModelNotesCapability::get_capability_name()
+            DigitalNatureModelNotesCapability::get_capability_name(),
+            ReadCapability::get_capability_name(),
 		];
 	}
 }
