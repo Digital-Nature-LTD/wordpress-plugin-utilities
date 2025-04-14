@@ -3,7 +3,7 @@
 namespace DigitalNature\Utilities\Helpers;
 
 use DateTime;
-use DigitalNature\Utilities\UtilitiesConfig;
+use DigitalNature\Utilities\Config\PluginConfig;
 use DigitalNature\WordPressUtilities\Helpers\DateHelper;
 use DigitalNature\WordPressUtilities\Helpers\TemplateHelper;
 
@@ -102,7 +102,7 @@ abstract class DataTableMonthlyHelper extends DataTableHelper
 		    [
 			    'helperClass' => static::class,
 		    ],
-		    trailingslashit(UtilitiesConfig::get_plugin_dir() . '/templates')
+		    trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
 	    );
 
         $message = ob_get_contents();

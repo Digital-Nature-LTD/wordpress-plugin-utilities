@@ -2,7 +2,7 @@
 /**
  * dn-utilities
  *
- * @package       DN_UTILITIES
+ * @package       DIGITAL_NATURE_UTILITIES
  * @author        Digital Nature
  * @license       gplv2
  * @version       1.0.0
@@ -23,45 +23,23 @@
  * along with dn-utilities. If not, see <https://www.gnu.org/licenses/gpl-2.0.html/>.
  */
 
-// Exit if accessed directly.
 use DigitalNature\Utilities\Bootstrap;
+use DigitalNature\Utilities\Config\PluginConfig;
 
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
-// Plugin name
-define('DN_UTILITIES_NAME',			'dn-utilities');
-
-// Plugin visible name
-define('DN_UTILITIES_FRIENDLY_NAME', 'Digital Nature - Utilities');
-
-// Plugin version
-define('DN_UTILITIES_VERSION',		'1.0.0');
-
-// Plugin Root File
-define('DN_UTILITIES_PLUGIN_FILE',	__FILE__);
-
-// Plugin base
-define('DN_UTILITIES_PLUGIN_BASE',	plugin_basename(DN_UTILITIES_PLUGIN_FILE));
-
-// Plugin Folder Path
-define('DN_UTILITIES_PLUGIN_DIR',	plugin_dir_path(DN_UTILITIES_PLUGIN_FILE));
-
-// Plugin Folder URL
-define('DN_UTILITIES_PLUGIN_URL',	plugin_dir_url(DN_UTILITIES_PLUGIN_FILE));
 
 /**
  * Bring in the autoloader
  */
-require_once DN_UTILITIES_PLUGIN_DIR . 'vendor/autoload.php';
+require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 
-/**
- * Bring in the bootstrap class
- *
- * @return  DigitalNature\Utilities\Bootstrap|object
- * @since   1.0.0
- * @author  Gareth Midwood
- */
-function DN_UTILITIES() {
-	return Bootstrap::instance();
+// bootstrap the plugin once the rest have loaded
+add_action('plugins_loaded', 'bootstrap_plugin_dn_utilities');
+
+function bootstrap_plugin_dn_utilities()
+{
+    PluginConfig::configure(__FILE__, '1.0.0');
+    Bootstrap::instance();
 }
 
-DN_UTILITIES();

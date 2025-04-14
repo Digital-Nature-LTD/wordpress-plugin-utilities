@@ -3,7 +3,7 @@
 namespace DigitalNature\Utilities\Helpers;
 
 use DigitalNature\Utilities\Admin\Menu;
-use DigitalNature\Utilities\UtilitiesConfig;
+use DigitalNature\Utilities\Config\PluginConfig;
 use DigitalNature\WordPressUtilities\Helpers\LogHelper;
 use DigitalNature\WordPressUtilities\Helpers\TemplateHelper;
 use Exception;
@@ -351,7 +351,7 @@ abstract class DataTableHelper
 		    [
 			    'helperClass' => static::class,
 		    ],
-		    trailingslashit(UtilitiesConfig::get_plugin_dir() . '/templates')
+		    trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
 	    );
 
         $message = ob_get_contents();
@@ -379,7 +379,7 @@ abstract class DataTableHelper
 		    [
 			    'helperClass' => static::class,
 		    ],
-		    trailingslashit(UtilitiesConfig::get_plugin_dir() . '/templates')
+		    trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
 	    );
 
         $message = ob_get_contents();
@@ -407,7 +407,7 @@ abstract class DataTableHelper
 		    [
 			    'helperClass' => static::class,
 		    ],
-		    trailingslashit(UtilitiesConfig::get_plugin_dir() . '/templates')
+		    trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
 	    );
 
         $message = ob_get_contents();
@@ -428,7 +428,7 @@ abstract class DataTableHelper
 		    [
 			    'helperClass' => static::class,
 		    ],
-		    trailingslashit(UtilitiesConfig::get_plugin_dir() . '/templates')
+		    trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
 	    );
 
         $message = ob_get_contents();

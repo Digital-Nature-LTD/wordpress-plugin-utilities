@@ -2,15 +2,18 @@
 
 namespace DigitalNature\Utilities\Admin;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 use DigitalNature\Utilities\Common\Users\Capabilities\DigitalNatureMenuCapability;
-use DigitalNature\Utilities\Common\Users\Roles\DigitalNatureAdminRole;
-use DigitalNature\Utilities\UtilitiesConfig;
+use DigitalNature\Utilities\Config\PluginConfig;
 use DigitalNature\WordPressUtilities\Factories\ModelFactory;
 use DigitalNature\WordPressUtilities\Helpers\MessageHelper;
 use DigitalNature\WordPressUtilities\Helpers\TemplateHelper;
 
 class Menu
 {
+    const DIGITAL_NATURE_MENU_SLUG = 'digital-nature';
     const CACHE_FLUSH_URL = 'digital-nature/flush-cache';
     const MODEL_NOTES_URL = 'digital-nature/notes';
 
@@ -30,9 +33,9 @@ class Menu
             'Digital Nature',
             'Digital Nature',
             DigitalNatureMenuCapability::get_capability_name(),
-            'digital-nature',
+            self::DIGITAL_NATURE_MENU_SLUG,
             [ $this, 'digital_nature_view' ],
-	        UtilitiesConfig::get_plugin_url() . 'assets/admin/img/digital-nature-white-sml.png',
+	        PluginConfig::get_plugin_url() . 'assets/admin/img/digital-nature-white-sml.png',
             2
         );
 
@@ -65,7 +68,7 @@ class Menu
             'dn-utilities/admin/home.php',
             [
             ],
-            trailingslashit(UtilitiesConfig::get_plugin_dir() . '/templates')
+            trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
         );
     }
 
@@ -110,7 +113,7 @@ class Menu
             [
                 'model' => $model,
             ],
-            trailingslashit(UtilitiesConfig::get_plugin_dir() . '/templates')
+            trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
         );
     }
 }

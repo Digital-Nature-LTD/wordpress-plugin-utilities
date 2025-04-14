@@ -22,7 +22,7 @@ class DigitalNatureAdminRole extends BaseRole
 	 */
 	public static function get_role_name(): string
 	{
-		return 'Digital Nature Admin';
+		return 'Digital Nature - Admin';
 	}
 
 	/**

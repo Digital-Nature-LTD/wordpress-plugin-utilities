@@ -19,11 +19,11 @@ To output notes for a model you can use the supplied `TemplateHelper` and notes 
 
 ```php
     TemplateHelper::render(
-        UtilitiesConfig::get_plugin_name() . '/admin/model/notes.php',
+        PluginConfig::get_plugin_name() . '/admin/model/notes.php',
         [
             'model' => $model,
         ],
-        trailingslashit(UtilitiesConfig::get_plugin_dir() . '/templates')
+        trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
     );
 ```
 

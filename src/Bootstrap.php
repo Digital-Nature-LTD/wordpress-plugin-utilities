@@ -9,7 +9,7 @@ if ( ! class_exists('Bootstrap') ) :
     /**
      * Main Bootstrap Class.
      *
-     * @package		DN_UTILITIES
+     * @package		DIGITAL_NATURE_UTILITIES
      * @since		1.0.0
      * @author		Gareth Midwood
      */
@@ -68,7 +68,7 @@ if ( ! class_exists('Bootstrap') ) :
                  * Fire a custom action to allow dependencies
                  * after the successful plugin setup
                  */
-                do_action( 'DN_UTILITIES/plugin_loaded' );
+                do_action( 'DIGITAL_NATURE_UTILITIES/plugin_loaded' );
             }
 
             return self::$instance;

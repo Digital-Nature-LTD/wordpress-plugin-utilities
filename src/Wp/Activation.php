@@ -3,6 +3,8 @@
 namespace DigitalNature\Utilities\Wp;
 
 // Exit if accessed directly.
+use DigitalNature\Utilities\Config\PluginConfig;
+
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Activation
@@ -17,14 +19,14 @@ class Activation
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
         if ($this->requirementsMet()) {
-            register_activation_hook(DN_UTILITIES_PLUGIN_FILE, [$this, 'register_activation_hook']);
+            register_activation_hook(PluginConfig::get_plugin_file(), [$this, 'register_activation_hook']);
 
             // include the custom settings for this plugin
             // new \DigitalNature\Utilities\Config\Settings();
         } else {
-            deactivate_plugins(DN_UTILITIES_PLUGIN_BASE);
+            deactivate_plugins(PluginConfig::get_plugin_base());
             add_action('network_admin_notices',[$this, 'activation_requirements_not_met']);
-            register_activation_hook(DN_UTILITIES_PLUGIN_FILE, [$this, 'activation_requirements_not_met']);
+            register_activation_hook(PluginConfig::get_plugin_file(), [$this, 'activation_requirements_not_met']);
         }
     }
 
@@ -58,7 +60,7 @@ class Activation
     public function activation_requirements_not_met()
     {
         $requiredPlugins = implode(', ', array_keys($this->pluginsRequired));
-        $message = "Plugin requirements not met, please ensure '$requiredPlugins' plugins are active before activating " . DN_UTILITIES_FRIENDLY_NAME;
+        $message = "Plugin requirements not met, please ensure '$requiredPlugins' plugins are active before activating " . DIGITAL_NATURE_UTILITIES_FRIENDLY_NAME;
 
         echo "<div class='notice notice-error'><p>$message</p></div>";
 
