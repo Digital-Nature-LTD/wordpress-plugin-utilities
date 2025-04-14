@@ -3,6 +3,7 @@
 namespace DigitalNature\Utilities\Admin;
 
 use DigitalNature\Utilities\Common\Users\Capabilities\DigitalNatureMenuCapability;
+use DigitalNature\Utilities\Common\Users\Roles\DigitalNatureAdminRole;
 use DigitalNature\Utilities\UtilitiesConfig;
 use DigitalNature\WordPressUtilities\Factories\ModelFactory;
 use DigitalNature\WordPressUtilities\Helpers\MessageHelper;
@@ -39,7 +40,7 @@ class Menu
             '',
             'Model Notes',
             'Model Notes',
-            'administrator',
+            DigitalNatureMenuCapability::get_capability_name(),
             self::MODEL_NOTES_URL,
             [$this, 'digital_nature_model_notes_view']
         );
@@ -53,9 +54,6 @@ class Menu
             self::CACHE_FLUSH_URL,
             [$this, 'digital_nature_flush_cache']
         );
-
-        $role = get_role('administrator');
-        $role->add_cap(DigitalNatureMenuCapability::get_capability_name(), true);
     }
 
     /**

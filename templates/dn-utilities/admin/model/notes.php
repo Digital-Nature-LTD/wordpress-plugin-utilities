@@ -1,8 +1,8 @@
 <?php
-/** @var Base $model */
+/** @var Model $model */
 
 use DigitalNature\Utilities\Helpers\DataTables\ModelNotes\ModelNotesDataTableHelper;
-use DigitalNature\Utilities\Models\Base;
+use DigitalNature\WordPressUtilities\Models\Model;
 
 $helper = new ModelNotesDataTableHelper();
 
