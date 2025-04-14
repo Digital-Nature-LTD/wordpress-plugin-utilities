@@ -85,6 +85,9 @@ if ( ! class_exists('Bootstrap') ) :
             // plugin status changes
             new \DigitalNature\Utilities\Wp\Activation();
 
+            // common
+            new \DigitalNature\Utilities\Common\Includes();
+
             // admin
             new \DigitalNature\Utilities\Admin\Includes();
         }

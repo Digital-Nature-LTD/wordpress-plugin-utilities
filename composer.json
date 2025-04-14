@@ -2,6 +2,7 @@
     "name": "digital-nature/utilities",
     "description": "Provides utilities for use with WordPress, plus the Digital Nature menu item and associated roles",
     "type": "wordpress-plugin",
+    "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4": {
             "DigitalNature\\Utilities\\": "src/"
@@ -14,6 +15,6 @@
         }
     ],
     "require": {
-        "digital-nature/wordpress-utilities": "^0.0.1"
+        "digital-nature/wordpress-utilities": "^0.0.6"
     }
 }

@@ -18,7 +18,7 @@ use DigitalNature\Utilities\Helpers\DataTableHelper;
             <a class="button" href="<?= $helper::get_cache_flush_url(); ?>">Refresh data</a>
         </h1>
 
-        <div id="klira-nurse-view">
+        <div id="dn-data-table">
             <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
             <?= $helper::render_tabs(); ?>
             <?= $helper::render_tab_intro(); ?>

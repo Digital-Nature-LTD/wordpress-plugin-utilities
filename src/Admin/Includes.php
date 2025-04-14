@@ -5,8 +5,8 @@ namespace DigitalNature\Utilities\Admin;
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Includes {
-
+class Includes
+{
     /**
      * constructor
      */

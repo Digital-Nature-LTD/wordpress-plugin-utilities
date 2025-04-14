@@ -2,6 +2,9 @@
 
 namespace DigitalNature\Utilities\Wp;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Activation
 {
     private array $pluginsRequired = [

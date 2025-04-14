@@ -31,7 +31,8 @@ class Menu
             DigitalNatureMenuCapability::get_capability_name(),
             'digital-nature',
             [ $this, 'digital_nature_view' ],
-	        UtilitiesConfig::get_plugin_url() . 'assets/admin/img/digital-nature-white-sml.png'
+	        UtilitiesConfig::get_plugin_url() . 'assets/admin/img/digital-nature-white-sml.png',
+            2
         );
 
         add_submenu_page(

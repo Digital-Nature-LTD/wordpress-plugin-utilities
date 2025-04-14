@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2876fee604c602a5583dfc35007eb987",
+    "content-hash": "107608ae426dde196e804a1dd24eacaf",
     "packages": [
         {
             "name": "digital-nature/wordpress-utilities",
-            "version": "v0.0.1",
+            "version": "v0.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Digital-Nature-LTD/wordpress-utilities.git",
-                "reference": "998e28ae6421a2fec65dfd3e9a85b6c5c167c4e8"
+                "reference": "21bda311048260334a0ae8828389e2ca4eecfac7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Digital-Nature-LTD/wordpress-utilities/zipball/998e28ae6421a2fec65dfd3e9a85b6c5c167c4e8",
-                "reference": "998e28ae6421a2fec65dfd3e9a85b6c5c167c4e8",
+                "url": "https://api.github.com/repos/Digital-Nature-LTD/wordpress-utilities/zipball/21bda311048260334a0ae8828389e2ca4eecfac7",
+                "reference": "21bda311048260334a0ae8828389e2ca4eecfac7",
                 "shasum": ""
             },
             "type": "library",
@@ -27,6 +27,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
                     "name": "Digital Nature",
@@ -36,9 +39,9 @@
             "description": "General utilities for use in WordPress websites",
             "support": {
                 "issues": "https://github.com/Digital-Nature-LTD/wordpress-utilities/issues",
-                "source": "https://github.com/Digital-Nature-LTD/wordpress-utilities/tree/v0.0.1"
+                "source": "https://github.com/Digital-Nature-LTD/wordpress-utilities/tree/v0.0.6"
             },
-            "time": "2025-04-08T16:33:06+00:00"
+            "time": "2025-04-14T10:34:17+00:00"
         }
     ],
     "packages-dev": [],
