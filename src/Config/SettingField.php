@@ -34,9 +34,10 @@ abstract class SettingField
 
     /**
      * @param array $submitted
+     * @param Setting $setting
      * @return bool
      */
-    public abstract static function is_valid(array $submitted): bool;
+    public abstract static function is_valid(array $submitted, Setting $setting): bool;
 
     /**
      * @return void

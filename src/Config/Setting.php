@@ -102,12 +102,25 @@ abstract class Setting
     public function options_validate(array $submitted): array
     {
         foreach ($this->get_fields() as $field) {
-            if (!$field::is_valid($submitted)) {
+            if (!$field::is_valid($submitted, $this)) {
                 $submitted[$field::get_field_name()] = '';
-                add_settings_error( $this->get_messages_slug(), $this->get_messages_slug(), __( $field::get_field_title() . ' is not valid' , $this->get_setting_page_slug() ), 'error' );
             }
         }
 
         return $submitted;
+    }
+
+    /**
+     * @param string $string
+     * @return void
+     */
+    public function add_field_error(string $string): void
+    {
+        add_settings_error(
+            $this->get_messages_slug(),
+            $this->get_messages_slug(),
+            __( $string , $this->get_setting_page_slug() ),
+            'error'
+        );
     }
 }
