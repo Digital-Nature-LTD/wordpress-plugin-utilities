@@ -53,11 +53,11 @@ abstract class Setting
     public abstract function get_section_content(): string;
 
     /**
-     * Returns the option value
+     * Returns the options value
      *
      * @return false|mixed|null
      */
-    public function get_option()
+    public function get_options()
     {
         $optionName = $this->get_option_name();
         return get_option($optionName);
@@ -101,9 +101,12 @@ abstract class Setting
      */
     public function options_validate(array $submitted): array
     {
+        $options = $this->get_options();
+
         foreach ($this->get_fields() as $field) {
             if (!$field::is_valid($submitted, $this)) {
-                $submitted[$field::get_field_name()] = '';
+                // if invalid we reset the value
+                $submitted[$field::get_field_name()] = $options[$field::get_field_name()];
             }
         }
 

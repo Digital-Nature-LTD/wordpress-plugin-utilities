@@ -45,7 +45,7 @@ abstract class SettingField
     public function get_field_html(): void
     {
         $optionName = $this->setting->get_option_name();
-        $options = $this->setting->get_option();
+        $options = $this->setting->get_options();
 
         $fieldId = static::get_field_id();
         $fieldName = static::get_field_name();

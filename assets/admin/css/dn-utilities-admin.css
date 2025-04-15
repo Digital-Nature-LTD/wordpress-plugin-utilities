@@ -1,0 +1,100 @@
+:root {
+    --border-radius: 20px;
+    --border-radius-small: 10px;
+}
+
+.digital-nature-admin-wrap {
+    margin: 20px 20px 20px 0;
+    background: white;
+    border-radius: var(--border-radius);
+    font-family: "Montserrat", sans-serif;
+
+    .digital-nature-admin-wrap-title {
+        background: black url(../img/trees.jpg) no-repeat bottom center;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 20px 20px 50px 20px;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+
+        h2 {
+            background: black url(../img/digital-nature-white.png) no-repeat 10px center;
+            background-size: 30px 30px;
+            color: white;
+            font-size: 2em;
+            line-height: 2em;
+            margin-top: 10px;
+            display: inline-block;
+            padding: 0 10px 0 50px;
+            border-radius: var(--border-radius-small);
+        }
+    }
+
+    .digital-nature-admin-wrap-content {
+        position: relative;
+        background: white;
+        border-radius: var(--border-radius);
+        margin-top: -40px;
+        padding: 20px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+        h1, h2, h3, h4, h5, h6 {
+            display: inline-block;
+            padding-bottom: 10px;
+            border-bottom: 1px solid black;
+        }
+
+        &:has(div.notice) {
+            padding-top: 10px;
+        }
+
+        div.notice {
+            margin: 10px 0;
+            border-radius: var(--border-radius-small);
+        }
+
+        &:has(.digital-nature-admin-wrap-panel-title) {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: 1fr 3fr;
+            grid-template-areas: "panel body";
+            gap: 20px;
+            padding: 0;
+
+            &:has(div.notice) {
+                padding-top: 0;
+            }
+        }
+
+        .digital-nature-admin-wrap-panel-title,
+        .digital-nature-admin-wrap-panel-body {
+            padding: 20px;
+        }
+
+        .digital-nature-admin-wrap-panel-title {
+            grid-area: panel;
+            background: #EEE;
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+
+        .digital-nature-admin-wrap-panel-body {
+            grid-area: body;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+    }
+
+    input {
+        border-radius: 0;
+        border-width: 0 0 1px 0;
+        border-color: #C9C9C9;
+    }
+
+    input[type=submit],
+    button:not(.notice-dismiss),
+    a.button {
+        display: inline-block;
+        padding: 20px;
+        border: 0;
+        background-color: #000;
+        color: #FFF;
+        border-radius: var(--border-radius);
+    }
+}
