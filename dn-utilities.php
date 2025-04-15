@@ -41,5 +41,7 @@ function bootstrap_plugin_dn_utilities()
 {
     PluginConfig::configure(__FILE__, '1.0.0');
     Bootstrap::instance();
+
+    do_action('digital_nature_utilities_plugin_loaded');
 }
 

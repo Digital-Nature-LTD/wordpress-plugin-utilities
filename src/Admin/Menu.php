@@ -30,12 +30,23 @@ class Menu
     public function add_admin_menu(): void
     {
         add_menu_page(
-            'Digital Nature',
+            '',
             'Digital Nature',
             DigitalNatureMenuCapability::get_capability_name(),
             self::DIGITAL_NATURE_MENU_SLUG,
             [ $this, 'digital_nature_view' ],
-	        PluginConfig::get_plugin_url() . 'assets/admin/img/digital-nature-white-sml.png',
+            PluginConfig::get_plugin_url() . 'assets/admin/img/digital-nature-white-sml.png',
+            2
+        );
+
+        /** MENU ITEMS */
+        add_submenu_page(
+            self::DIGITAL_NATURE_MENU_SLUG,
+            'Digital Nature',
+            'Dashboard',
+            DigitalNatureMenuCapability::get_capability_name(),
+            self::DIGITAL_NATURE_MENU_SLUG,
+            [ $this, 'digital_nature_view' ],
             2
         );
 

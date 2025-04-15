@@ -10,7 +10,7 @@ abstract class Setting
     /**
      * @return string
      */
-    public abstract function get_setting_page(): string;
+    public abstract function get_setting_page_slug(): string;
 
     /**
      * @return string
@@ -26,6 +26,11 @@ abstract class Setting
      * @return string
      */
     public abstract function get_option_group(): string;
+
+    /**
+     * @return string
+     */
+    public abstract function get_messages_slug(): string;
 
     /**
      * @return SettingField[]
@@ -45,7 +50,7 @@ abstract class Setting
     /**
      * @return string
      */
-    protected abstract function get_section_content(): string;
+    public abstract function get_section_content(): string;
 
     /**
      * Returns the option value
@@ -75,7 +80,7 @@ abstract class Setting
             $this->get_section_id(),
             $this->get_section_title(),
             [$this, 'get_section_content'],
-            $this->get_setting_page(),
+            $this->get_option_group(),
         );
 
         // populate the section with the fields
@@ -84,7 +89,7 @@ abstract class Setting
                 $field->get_field_name(),
                 $field->get_field_title(),
                 [$field, 'get_field_html'],
-                $this->get_setting_page(),
+                $this->get_option_group(),
                 $this->get_section_id()
             );
         }
@@ -97,8 +102,9 @@ abstract class Setting
     public function options_validate(array $submitted): array
     {
         foreach ($this->get_fields() as $field) {
-            if (!$field->is_valid($submitted)) {
-                $submitted[$field->get_field_name()] = '';
+            if (!$field::is_valid($submitted)) {
+                $submitted[$field::get_field_name()] = '';
+                add_settings_error( $this->get_messages_slug(), $this->get_messages_slug(), __( $field::get_field_title() . ' is not valid' , $this->get_setting_page_slug() ), 'error' );
             }
         }
 

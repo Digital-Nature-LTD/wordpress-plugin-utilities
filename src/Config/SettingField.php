@@ -20,33 +20,28 @@ abstract class SettingField
     /**
      * @return string
      */
-    public abstract function get_field_title(): string;
+    public abstract static function get_field_title(): string;
 
     /**
      * @return string
      */
-    public abstract function get_field_name(): string;
+    public abstract static function get_field_name(): string;
 
     /**
      * @return string
      */
-    public abstract function get_field_id(): string;
-
-    /**
-     * @return string
-     */
-    public abstract function get_setting_class(): string;
+    public abstract static function get_field_id(): string;
 
     /**
      * @param array $submitted
      * @return bool
      */
-    public abstract function is_valid(array $submitted): bool;
+    public abstract static function is_valid(array $submitted): bool;
 
     /**
-     * @return string
+     * @return void
      */
-    public function get_field_html(): string
+    public function get_field_html(): void
     {
         $optionName = $this->setting->get_option_name();
         $options = $this->setting->get_option();
@@ -55,6 +50,6 @@ abstract class SettingField
         $fieldName = static::get_field_name();
         $currentValue = esc_attr($options[$fieldName] ?? '');
 
-        return "<input id='$fieldId' name='{$optionName}[{$fieldName}]' type='text' value='$currentValue' />";
+        echo "<input id='$fieldId' name='{$optionName}[{$fieldName}]' type='text' value='$currentValue' />";
     }
 }
