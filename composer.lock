@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a89a1371894fef9ed559fbc45ed919f4",
+    "content-hash": "de24fa8cb51d82843dacf6e26ffdc0ff",
     "packages": [
         {
             "name": "digital-nature/wordpress-utilities",
-            "version": "v0.0.11",
+            "version": "v0.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Digital-Nature-LTD/wordpress-utilities.git",
-                "reference": "43c9905ccb395f9a7306cd66125c67c5c3cd13a6"
+                "reference": "38a96dec0b4efcc558ae5f4301ace61103e90485"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Digital-Nature-LTD/wordpress-utilities/zipball/43c9905ccb395f9a7306cd66125c67c5c3cd13a6",
-                "reference": "43c9905ccb395f9a7306cd66125c67c5c3cd13a6",
+                "url": "https://api.github.com/repos/Digital-Nature-LTD/wordpress-utilities/zipball/38a96dec0b4efcc558ae5f4301ace61103e90485",
+                "reference": "38a96dec0b4efcc558ae5f4301ace61103e90485",
                 "shasum": ""
             },
             "type": "library",
@@ -39,9 +39,9 @@
             "description": "General utilities for use in WordPress websites",
             "support": {
                 "issues": "https://github.com/Digital-Nature-LTD/wordpress-utilities/issues",
-                "source": "https://github.com/Digital-Nature-LTD/wordpress-utilities/tree/v0.0.11"
+                "source": "https://github.com/Digital-Nature-LTD/wordpress-utilities/tree/v0.0.12"
             },
-            "time": "2025-04-15T09:35:32+00:00"
+            "time": "2025-04-16T10:00:17+00:00"
         }
     ],
     "packages-dev": [],

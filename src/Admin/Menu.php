@@ -16,10 +16,35 @@ class Menu
     const DIGITAL_NATURE_MENU_SLUG = 'digital-nature';
     const CACHE_FLUSH_URL = 'digital-nature/flush-cache';
     const MODEL_NOTES_URL = 'digital-nature/notes';
+    const USER_NOTES_URL = 'digital-nature/user/notes';
 
     public function __construct()
     {
+        add_action('admin_init', [$this, 'digital_nature_flush_cache_page'], 1);
         add_action('admin_menu', [$this, 'add_admin_menu'], 20);
+    }
+
+    /**
+     * @return void
+     */
+    public function digital_nature_flush_cache_page()
+    {
+        // if it 's not the flush cache page then we skip it
+        if (!isset($_GET['page']) || $_GET['page'] !== self::CACHE_FLUSH_URL) {
+            return;
+        }
+
+        $key = $_GET['key'] ?? null;
+
+        if (!$key) {
+            return;
+        }
+
+        delete_transient($key);
+
+        // send them back where they came from
+        wp_safe_redirect(wp_get_referer());
+        exit;
     }
 
     /**
@@ -59,6 +84,15 @@ class Menu
             [$this, 'digital_nature_model_notes_view']
         );
 
+        add_submenu_page(
+            '',
+            'User Notes',
+            'User Notes',
+            DigitalNatureMenuCapability::get_capability_name(),
+            self::USER_NOTES_URL,
+            [$this, 'digital_nature_user_notes_view']
+        );
+
         // CACHE FLUSHING PAGES
         add_submenu_page(
             '',
@@ -66,7 +100,7 @@ class Menu
             'Cache Flush',
             'edit_pages',
             self::CACHE_FLUSH_URL,
-            [$this, 'digital_nature_flush_cache']
+            [$this, 'digital_nature_flush_cache_page']
         );
     }
 
@@ -81,24 +115,6 @@ class Menu
             ],
             trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
         );
-    }
-
-    /**
-     * @return void
-     */
-    public function digital_nature_flush_cache()
-    {
-        $key = $_GET['key'] ?? null;
-
-        if (!$key) {
-            MessageHelper::error_and_exit('You must submit a cache key to flush. Go back and try again');
-        }
-
-        delete_transient($key);
-
-        // send them back where they came from
-        wp_safe_redirect(wp_get_referer());
-        exit;
     }
 
 
@@ -123,6 +139,32 @@ class Menu
             'dn-utilities/admin/model/notes.php',
             [
                 'model' => $model,
+            ],
+            trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
+        );
+    }
+
+    /**
+     * @return void
+     */
+    public function digital_nature_user_notes_view()
+    {
+        $userId = $_GET['user'] ?? null;
+
+        if (!$userId) {
+            MessageHelper::error_and_exit('You must submit a user to view the notes for. Go back and try again');
+        }
+
+        $user = get_user_by('ID', $userId);
+
+        if (!$user) {
+            MessageHelper::error_and_exit('No user was found with that ID. Go back and try again');
+        }
+
+        TemplateHelper::render(
+            'dn-utilities/admin/user/notes.php',
+            [
+                'user' => $user,
             ],
             trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
         );
