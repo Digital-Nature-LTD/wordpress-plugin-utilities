@@ -48,4 +48,4 @@ TemplateHelper::render(
 );
 ```
 
-Alternatively there is an admin page that can be used at `/wp-admin/admin.php?page=digital-nature/notes&model=123456`
+Alternatively there is an admin page that can be used at `/wp-admin/admin.php?page=digital-nature/user/notes&user=123456`
