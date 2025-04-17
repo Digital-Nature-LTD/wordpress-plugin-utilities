@@ -32,4 +32,12 @@ class PluginConfig extends PluginConfiguration
     {
         return 'Digital Nature - Utilities';
     }
+
+    /**
+     * @return string
+     */
+    public static function get_plugin_text_domain(): string
+    {
+        return 'dn-utilities';
+    }
 }

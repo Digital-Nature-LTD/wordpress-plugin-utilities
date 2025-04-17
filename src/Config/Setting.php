@@ -122,7 +122,7 @@ abstract class Setting
         add_settings_error(
             $this->get_messages_slug(),
             $this->get_messages_slug(),
-            __( $string , $this->get_setting_page_slug() ),
+            __( $string , PluginConfig::get_plugin_text_domain() ),
             'error'
         );
     }

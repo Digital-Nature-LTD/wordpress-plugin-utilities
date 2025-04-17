@@ -2,6 +2,8 @@
 
 namespace DigitalNature\Utilities;
 
+use DigitalNature\Utilities\Config\PluginConfig;
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 if ( ! class_exists('Bootstrap') ) :
@@ -34,7 +36,7 @@ if ( ! class_exists('Bootstrap') ) :
          * @return	void
          */
         public function __clone() {
-            _doing_it_wrong( __FUNCTION__, __( 'You are not allowed to clone this class.', 'dn-utilities' ), '1.0.0' );
+            _doing_it_wrong( __FUNCTION__, __( 'You are not allowed to clone this class.', PluginConfig::get_plugin_text_domain() ), '1.0.0' );
         }
 
         /**
@@ -45,7 +47,7 @@ if ( ! class_exists('Bootstrap') ) :
          * @return	void
          */
         public function __wakeup() {
-            _doing_it_wrong( __FUNCTION__, __( 'You are not allowed to unserialize this class.', 'dn-utilities' ), '1.0.0' );
+            _doing_it_wrong( __FUNCTION__, __( 'You are not allowed to unserialize this class.', PluginConfig::get_plugin_text_domain() ), '1.0.0' );
         }
 
         /**
