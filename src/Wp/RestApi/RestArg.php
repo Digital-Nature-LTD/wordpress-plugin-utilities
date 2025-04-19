@@ -12,7 +12,7 @@ abstract class RestArg
 
     /**
      * @param bool $required
-     * @param $default
+     * @param mixed|null $default
      */
     public function __construct(bool $required = false, $default = null)
     {

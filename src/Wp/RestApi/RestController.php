@@ -3,16 +3,23 @@
 namespace DigitalNature\Utilities\Wp\RestApi;
 
 use Exception;
-use WP_Error;
 use WP_REST_Controller;
-use WP_REST_Request;
-use WP_REST_Response;
 
 // Exit if accessed directly.
 if (!defined('ABSPATH')) exit;
 
 abstract class RestController extends WP_REST_Controller
 {
+    /**
+     * @var RestControllerRoute[]
+     */
+    protected array $routes;
+
+    /**
+     * @var RestResource
+     */
+    public RestResource $resource;
+
     /**
      * @return string
      */
@@ -21,12 +28,12 @@ abstract class RestController extends WP_REST_Controller
     /**
      * @return RestControllerRoute[]
      */
-    public abstract function get_routes(): array;
+    protected abstract function get_routes(): array;
 
     /**
      * @return RestResource
      */
-    public abstract function get_resource(): RestResource;
+    protected abstract function get_resource(): RestResource;
 
     /**
      * @param RestNamespace $namespace
@@ -34,8 +41,9 @@ abstract class RestController extends WP_REST_Controller
      */
     public function __construct(RestNamespace $namespace)
     {
-        // add namespace
         $this->namespace = "{$namespace->get_name()}/{$namespace->get_version()}";
+        $this->routes = $this->get_routes();
+        $this->resource = $this->get_resource();
     }
 
     /**
@@ -123,5 +131,18 @@ abstract class RestController extends WP_REST_Controller
     protected function get_json_schema(): string
     {
         return 'http://json-schema.org/draft-04/schema#';
+    }
+
+    /**
+     * @return void
+     * @throws Exception
+     */
+    public function register_routes()
+    {
+        register_rest_route(
+            $this->namespace,
+            $this->build_route_url(),
+            $this->build_route_configuration(),
+        );
     }
 }
