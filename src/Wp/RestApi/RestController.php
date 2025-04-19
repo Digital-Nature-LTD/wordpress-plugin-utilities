@@ -14,11 +14,6 @@ if (!defined('ABSPATH')) exit;
 abstract class RestController extends WP_REST_Controller
 {
     /**
-     * @var string
-     */
-    protected string $version;
-
-    /**
      * @return string
      */
     public abstract function get_route_url(): string;
@@ -40,8 +35,7 @@ abstract class RestController extends WP_REST_Controller
     public function __construct(RestNamespace $namespace)
     {
         // add namespace
-        $this->namespace = $namespace->get_name();
-        $this->version = $namespace->get_version();
+        $this->namespace = "{$namespace->get_name()}/{$namespace->get_version()}";
     }
 
     /**
@@ -57,7 +51,7 @@ abstract class RestController extends WP_REST_Controller
             throw new Exception("API routes must start with a '/' character.");
         }
 
-        return "{$this->namespace}/{$this->version}{$route}";
+        return $route;
     }
 
     /**
@@ -70,8 +64,8 @@ abstract class RestController extends WP_REST_Controller
 
         foreach ($arguments as $arg) {
             $args[$arg->get_name()] = array_filter([
-                'default' => [$arg, 'default'],
-                'required' => [$arg, 'required'],
+                'default' => $arg->default(),
+                'required' => $arg->required(),
                 'validate_callback' => [$arg, 'validate_callback'],
                 'sanitize_callback' => [$arg, 'sanitize_callback'],
             ]);
@@ -110,14 +104,10 @@ abstract class RestController extends WP_REST_Controller
 
         foreach ($routes as $route) {
             $config[] = [
-                array_filter(
-                    [
-                        'methods'               => $route->methods(),
-                        'callback'              => [$route, 'callback'],
-                        'permission_callback'   => [$route, 'permission_callback'],
-                        'args'                  => $this->build_args($route->args()),
-                    ]
-                ),
+                'methods'               => $route->methods(),
+                'callback'              => [$route, 'callback'],
+                'permission_callback'   => [$route, 'permission_callback'],
+                'args'                  => $this->build_args($route->args()),
                 'schema' => $this->build_schema()
             ];
         }

@@ -7,14 +7,14 @@ if (!defined('ABSPATH')) exit;
 
 abstract class RestArg
 {
-    protected $default;
-    protected bool $required;
+    public $default;
+    public bool $required;
 
     /**
-     * @param $required
+     * @param bool $required
      * @param $default
      */
-    public function __construct($required = false, $default = null)
+    public function __construct(bool $required = false, $default = null)
     {
         $this->default = $default;
         $this->required = $required;

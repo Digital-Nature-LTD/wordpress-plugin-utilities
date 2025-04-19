@@ -45,3 +45,10 @@ function bootstrap_plugin_dn_utilities()
     do_action('digital_nature_utilities_plugin_loaded');
 }
 
+function dump_and_die($input): void
+{
+    echo "<pre>";
+    var_dump($input);
+    exit('</pre>');
+}
+
