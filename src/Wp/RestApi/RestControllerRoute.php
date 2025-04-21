@@ -5,6 +5,7 @@ namespace DigitalNature\Utilities\Wp\RestApi;
 // Exit if accessed directly.
 if (!defined('ABSPATH')) exit;
 
+use DigitalNature\Utilities\Config\PluginConfig;
 use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
@@ -137,6 +138,25 @@ abstract class RestControllerRoute
         $lastData = array_pop($this->responseData);
 
         return rest_ensure_response($lastData);
+    }
+
+    /**
+     * @return WP_REST_Response
+     */
+    protected function send_empty_response(): WP_REST_Response
+    {
+        return rest_ensure_response([]);
+    }
+
+    /**
+     * @param string $message
+     * @param string|null $code
+     * @param int $httpStatus
+     * @return WP_Error
+     */
+    protected function send_error_response(string $message, string $code = null, int $httpStatus = 400): WP_Error
+    {
+        return new WP_Error($code, esc_html__($message, PluginConfig::get_plugin_text_domain()), ['status' => $httpStatus]);
     }
 
     /**
