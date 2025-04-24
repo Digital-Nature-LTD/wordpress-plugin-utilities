@@ -12,6 +12,7 @@
 
     .digital-nature-admin-wrap-title {
         background: black url(../img/trees.jpg) no-repeat bottom center;
+        background-size: cover;
         padding: 20px 20px 50px 20px;
         border-radius: var(--border-radius) var(--border-radius) 0 0;
 
