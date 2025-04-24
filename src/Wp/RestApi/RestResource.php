@@ -25,12 +25,4 @@ abstract class RestResource
      * @return array
      */
     public abstract function get_schema_properties(): array;
-
-    /**
-     * Formats the given data in the correct schema
-     *
-     * @param array $data
-     * @return array
-     */
-    public abstract function format_response(array $data): array;
 }

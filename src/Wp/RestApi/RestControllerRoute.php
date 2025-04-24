@@ -95,15 +95,13 @@ abstract class RestControllerRoute
     }
 
     /**
-     * @param array $data
+     * @param RestResourceModel $model
      * @param bool $addLink
      * @return WP_Error|WP_REST_Response
      */
-    protected function add_response_data(array $data, bool $addLink = false)
+    protected function add_response_data(RestResourceModel $model, bool $addLink = false)
     {
-        $resource = $this->controller->resource;
-
-        $formattedResponse = $resource->format_response($data);
+        $formattedResponse = $model->format_response();
 
         // get the response for this record
         $response = rest_ensure_response($formattedResponse);
@@ -124,20 +122,6 @@ abstract class RestControllerRoute
     protected function send_response()
     {
         return rest_ensure_response($this->responseData);
-    }
-
-    /**
-     * @param array $responseData
-     * @param bool $addLink
-     * @return WP_Error|WP_REST_Response
-     */
-    protected function send_single_record_response(array $responseData, bool $addLink = true)
-    {
-        $this->add_response_data($responseData, $addLink);
-
-        $lastData = array_pop($this->responseData);
-
-        return rest_ensure_response($lastData);
     }
 
     /**
