@@ -97,20 +97,23 @@ abstract class RestControllerRoute
     /**
      * @param RestResourceModel $model
      * @param bool $addLink
-     * @return array
+     * @return WP_Error|WP_REST_Response
      */
-    protected function add_response_data(RestResourceModel $model, bool $addLink = false): array
+    protected function add_response_data(RestResourceModel $model, bool $addLink = false)
     {
         $formattedResponse = $model->format_response();
 
-        if ($addLink) {
-            $this->responseData[] = $this->response_with_links($formattedResponse);
+        // get the response for this record
+        $response = rest_ensure_response($formattedResponse);
+
+        if (!is_wp_error($response) && $addLink) {
+            $this->responseData[] = $this->response_with_links($response);
         } else {
             // add this record to the response data
-            $this->responseData[] = $formattedResponse;
+            $this->responseData[] = $response->get_data();
         }
 
-        return $formattedResponse;
+        return $response;
     }
 
     /**
@@ -141,22 +144,21 @@ abstract class RestControllerRoute
     }
 
     /**
-     * @param array $data
+     * @param WP_REST_Response $response
      * @return array
      */
-    private function response_with_links(array &$data): array
+    private function response_with_links(WP_REST_Response $response): array
     {
+        $data = (array) $response->get_data();
         $server = rest_get_server();
 
-        $response = rest_ensure_response($data);
-
-        if (method_exists($server, 'get_compact_response_links')) {
-            $links = call_user_func([$server, 'get_compact_response_links'], $response);
+        if ( method_exists( $server, 'get_compact_response_links' ) ) {
+            $links = call_user_func( array( $server, 'get_compact_response_links' ), $response );
         } else {
-            $links = call_user_func([$server, 'get_response_links'], $response);
+            $links = call_user_func( array( $server, 'get_response_links' ), $response );
         }
 
-        if (!empty($links)) {
+        if ( ! empty( $links ) ) {
             $data['_links'] = $links;
         }
 
