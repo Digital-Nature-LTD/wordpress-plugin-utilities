@@ -97,23 +97,20 @@ abstract class RestControllerRoute
     /**
      * @param RestResourceModel $model
      * @param bool $addLink
-     * @return WP_Error|WP_REST_Response
+     * @return array
      */
-    protected function add_response_data(RestResourceModel $model, bool $addLink = false)
+    protected function add_response_data(RestResourceModel $model, bool $addLink = false): array
     {
         $formattedResponse = $model->format_response();
 
-        // get the response for this record
-        $response = rest_ensure_response($formattedResponse);
-
-        if (!is_wp_error($response) && $addLink) {
-            $this->responseData[] = $this->response_with_links($response);
+        if ($addLink) {
+            $this->responseData[] = $this->response_with_links($formattedResponse);
         } else {
             // add this record to the response data
-            $this->responseData[] = $response;
+            $this->responseData[] = $formattedResponse;
         }
 
-        return $response;
+        return $formattedResponse;
     }
 
     /**
@@ -144,21 +141,22 @@ abstract class RestControllerRoute
     }
 
     /**
-     * @param WP_REST_Response $response
+     * @param array $data
      * @return array
      */
-    private function response_with_links(WP_REST_Response $response): array
+    private function response_with_links(array &$data): array
     {
-        $data = (array) $response->get_data();
         $server = rest_get_server();
 
-        if ( method_exists( $server, 'get_compact_response_links' ) ) {
-            $links = call_user_func( array( $server, 'get_compact_response_links' ), $response );
+        $response = rest_ensure_response($data);
+
+        if (method_exists($server, 'get_compact_response_links')) {
+            $links = call_user_func([$server, 'get_compact_response_links'], $response);
         } else {
-            $links = call_user_func( array( $server, 'get_response_links' ), $response );
+            $links = call_user_func([$server, 'get_response_links'], $response);
         }
 
-        if ( ! empty( $links ) ) {
+        if (!empty($links)) {
             $data['_links'] = $links;
         }
 
