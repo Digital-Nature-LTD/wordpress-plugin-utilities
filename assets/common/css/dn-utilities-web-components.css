@@ -115,9 +115,19 @@ digital-nature-grid-overlay {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
-    background: var(--background-color-brand-green) url(../img/brand/digital-nature-logo-primary.svg) no-repeat 10px center;
-    background-position: var(--page-gutter-width) var(--page-gutter-width);
-    background-size: auto 34px;
+    background: var(--background-color-brand-green);
+
+    .digital-nature-logo {
+        position: absolute;
+        top: calc(var(--page-gutter-width) - 10px);
+        left: calc(var(--page-gutter-width) - 10px);
+        z-index: 3;
+        padding: 10px;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
 
     .back,
     .front {
@@ -149,6 +159,7 @@ digital-nature-grid-overlay {
 
     .right {
         grid-area: right;
+        text-align: right;
     }
 
     .left,

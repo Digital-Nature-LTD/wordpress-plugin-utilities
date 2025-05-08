@@ -28,3 +28,7 @@
     --font-color-brand-green-light: #7DF799;
     --font-color-brand-green-dark: var(--background-color-brand-green);
 }
+
+body {
+    font-size: 1em;
+}

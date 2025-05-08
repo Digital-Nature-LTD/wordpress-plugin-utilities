@@ -8,6 +8,9 @@ use DigitalNature\Utilities\Config\Setting;
 
 <div class="digital-nature-admin-wrap-global digital-nature-admin-wrap">
     <div class="digital-nature-hero digital-nature-grid-overlay-container digital-nature-theme-green">
+        <a href="https://www.digital-nature.co.uk/" class="digital-nature-logo" target="_blank">
+            <img height="34px" src="<?= PluginConfig::get_plugin_url(); ?>/assets/common/img/brand/digital-nature-logo-primary.svg" alt="The Digital Nature logo" />
+        </a>
         <div class="front">
             <div class="left">
                 <h2><?= $setting->get_setting_page_title(); ?></h2>
