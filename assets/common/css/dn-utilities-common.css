@@ -1,0 +1,30 @@
+:root {
+    --page-width-mobile: 320px;
+    --page-width-tablet: 768px;
+    --page-width-desktop: 1024px;
+    --page-width-widescreen: 1280px;
+    --page-width-full: 1440px;
+    --page-width-max: 1600px;
+
+    --page-gutter-width: 40px;
+
+    --border-radius: 20px;
+    --border-radius-small: 10px;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+
+    --font-size-extra-large-heading: calc(80/16 * 1em);
+    --font-size-large-heading: calc(68/16 * 1em);
+    --font-size-medium-heading: calc(56/16 * 1em);
+    --font-size-small-heading: calc(44/16 * 1em);
+    --font-size-extra-small-heading: calc(28/16 * 1em);
+    --font-size-eyebrow: calc(14/16 * 1em);
+    --font-size-paragraph: calc(20/16 * 1em);
+    --font-size-paragraph-small: calc(16/16 * 1em);
+
+    --background-color-brand-grey-light: #F1F1F1;
+    --background-color-brand-green: #254137;
+
+    --font-color-brand-green-light: #7DF799;
+    --font-color-brand-green-dark: var(--background-color-brand-green);
+}

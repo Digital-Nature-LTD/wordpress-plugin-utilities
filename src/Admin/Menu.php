@@ -60,7 +60,7 @@ class Menu
             DigitalNatureMenuCapability::get_capability_name(),
             self::DIGITAL_NATURE_MENU_SLUG,
             [ $this, 'digital_nature_view' ],
-            PluginConfig::get_plugin_url() . 'assets/admin/img/digital-nature-white-sml.png',
+            PluginConfig::get_plugin_url() . 'assets/common/img/brand/digital-nature-logo-icon-primary-menu.png',
             2
         );
 

@@ -33,7 +33,7 @@ class Includes
     {
         wp_enqueue_style( 'dn-utilities-admin-styles', PluginConfig::get_plugin_url() . 'assets/admin/css/dn-utilities-admin.css', [], PluginConfig::get_plugin_version(), 'all' );
 
-        wp_register_style('dn-utilities-google-fonts', '//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap', [], null);
+        wp_register_style('dn-utilities-google-fonts', '//fonts.googleapis.com/css2?family=Geist:wght@400..500&family=Instrument+Serif:ital@0;1&display=swap', [], null);
         wp_enqueue_style('dn-utilities-google-fonts');
     }
 }
