@@ -1,6 +1,18 @@
 .digital-nature-admin-wrap-global {
     background: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    color: var(--colour-brand-green);
+
+    /** Reset wordpress styles **/
+    .form-table,
+    .button,
+    .button-primary,
+    .button-secondary,
+    p.submit {
+        font-size: 1em;
+        line-height: 1em;
+        min-height: auto;
+    }
 }
 
 .digital-nature-admin-wrap {
@@ -19,13 +31,13 @@
 
     p {
         font-size: var(--font-size-paragraph);
-        line-height: 130%;
+        line-height: var(--line-height-standard);
     }
 
     h1, h2, h3, h4, h5, h6 {
         font-weight: var(--font-weight-medium);
         letter-spacing: -0.04em;
-        line-height: 100%;
+        line-height: var(--line-height-small);
 
         em {
             font-family: "Instrument Serif", serif;
@@ -107,7 +119,8 @@
         border-width: 0 0 1px 0;
         border-color: #C9C9C9;
         padding: 0 8px;
-        line-height: 2;
+        line-height: var(--line-height-large);
+        font-size: var(--font-size-paragraph);
 
         &:focus {
             border-width: 0 0 1px 0;
@@ -119,11 +132,37 @@
     button:not(.notice-dismiss),
     a.button {
         display: inline-block;
-        padding: 20px;
+        padding: var(--button-padding-vertical) var(--button-padding-horizontal);
         border: 0;
-        background-color: #000;
+        background-color: var(--colour-brand-green);
         color: #FFF;
-        border-radius: var(--border-radius);
+        border-radius: var(--border-radius-button);
+        cursor: pointer;
+        font-size: var(--button-font-size);
+
+        &:hover {
+            background-color: var(--colour-brand-green);
+            filter: brightness(120%);
+        }
+    }
+
+    button[type=submit] {
+        display: block;
+        margin-top: var(--margin-standard);
+    }
+
+    label {
+        display: inline-block;
+    }
+
+    /** labels and the wordpress equivalent for settings */
+    label,
+    .form-table th {
+        font-weight: var(--font-weight-medium);
+        line-height: var(--line-height-standard);
+        width: var(--form-label-width);
+        padding: var(--padding-standard) var(--padding-small) var(--padding-standard) 0;
+        font-size: var(--font-size-paragraph);
     }
 }
 
