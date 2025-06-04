@@ -1,0 +1,100 @@
+:root {
+    --colour-brand-green-light: #7DF799;
+    --colour-brand-green: #254137;
+    --colour-brand-grey-light: #F1F1F1;
+    --colour-brand-yellow: #EBEFA6;
+    --colour-brand-beige: #ECE9E4;
+    --colour-brand-red: #A83E32;
+    --colour-brand-white: #FFF;
+
+
+
+    /** Generic variables **/
+    --page-width-mobile: 320px;
+    --page-width-tablet: 768px;
+    --page-width-desktop: 1024px;
+    --page-width-widescreen: 1280px;
+    --page-width-full: 1440px;
+    --page-width-max: 1600px;
+
+    --page-gutter-width: 40px;
+
+    --border-radius-small: 8px;
+    --border-radius-medium: 14px;
+    --border-radius-large: 20px;
+    --border-radius-button: var(--border-radius-small);
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+
+    --font-size-extra-large-heading: calc(80/16 * 1em);
+    --font-size-large-heading: calc(68/16 * 1em);
+    --font-size-medium-heading: calc(56/16 * 1em);
+    --font-size-small-heading: calc(44/16 * 1em);
+    --font-size-extra-small-heading: calc(28/16 * 1em);
+    --font-size-eyebrow: calc(14/16 * 1em);
+    --font-size-paragraph: calc(20/16 * 1em);
+    --font-size-paragraph-small: 1em;
+
+    --background-color-brand-grey-light: var(--colour-brand-grey-light);
+    --background-color-brand-green: var(--colour-brand-green);
+
+    --font-color-brand-green-light: var(--colour-brand-green-light);
+    --font-color-brand-green-dark: var(--colour-brand-green);
+
+    --padding-small: 0.5em;
+    --padding-standard: var(--font-size-paragraph);
+
+    --margin-standard: var(--font-size-paragraph);
+
+    --line-height-small: 100%;
+    --line-height-standard: 130%;
+    --line-height-large: 200%;
+
+    /** Element-specific variables */
+    --form-label-width: 200px;
+
+    --button-padding-vertical: var(--font-size-extra-small-heading);
+    --button-padding-horizontal: calc(31/16 * 1em);
+    --button-font-size: calc(18/16 * 1em);
+
+
+
+
+    /** Web Component variables */
+    /** Dismissable message */
+    --digital-nature-dismissable-message-success-border-colour: var(--colour-brand-green);
+    --digital-nature-dismissable-message-error-border-colour: var(--colour-brand-red);
+    --digital-nature-dismissable-message-warning-border-colour: var(--colour-brand-yellow);
+    --digital-nature-dismissable-message-info-border-colour: var(--colour-brand-beige);
+    --digital-nature-dismissable-message-success-text-colour: var(--colour-brand-green);
+    --digital-nature-dismissable-message-error-text-colour: var(--colour-brand-red);
+    --digital-nature-dismissable-message-warning-text-colour: var(--colour-brand-green);
+    --digital-nature-dismissable-message-info-text-colour: var(--colour-brand-green);
+
+    --digital-nature-dismissable-message-success-dot-before-colour: var(--colour-brand-green-light);
+    --digital-nature-dismissable-message-success-dot-after-colour: var(--colour-brand-white);
+    --digital-nature-dismissable-message-error-dot-before-colour: var(--colour-brand-green-light);
+    --digital-nature-dismissable-message-error-dot-after-colour: var(--colour-brand-white);
+    --digital-nature-dismissable-message-warning-dot-before-colour: var(--colour-brand-green-light);
+    --digital-nature-dismissable-message-warning-dot-after-colour: var(--colour-brand-white);
+    --digital-nature-dismissable-message-info-dot-before-colour: var(--colour-brand-green-light);
+    --digital-nature-dismissable-message-info-dot-after-colour: var(--colour-brand-white);
+
+
+    --digital-nature-dismissable-message-border-radius: var(--border-radius-small);
+}
+
+/** Reset wordpress styles **/
+body {
+    font-size: 1em;
+}
+
+
+
+
+/** Animations **/
+@keyframes dnFadeInOutRepeat {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1; }
+}
