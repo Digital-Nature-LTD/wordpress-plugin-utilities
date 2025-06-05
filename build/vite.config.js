@@ -25,7 +25,6 @@ const inputFiles = Object.fromEntries(
 
 export default defineConfig({
     plugins: [
-
     ],
     build: {
         rollupOptions: {
@@ -48,10 +47,14 @@ export default defineConfig({
                     // Default for other assets
                     return 'assets/[name][extname]';
                 }
-            }
+            },
         },
+        sourcemap: 'inline',
         minify: true,
         outDir: '../dn-utilities/assets',
         emptyOutDir: true,
+        watch: {
+            include: '{configs,assets}/**/*.{css,js}' // watches additional files that are not in the rollupOptions.input list
+        }
     }
 })
