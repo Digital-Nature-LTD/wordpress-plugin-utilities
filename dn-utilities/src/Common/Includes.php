@@ -34,7 +34,7 @@ class Includes
         // common styles - inc variables
         wp_enqueue_style(
             'dn-utilities-common-styles',
-            PluginConfig::get_plugin_url() . 'assets/common/css/dn-utilities-common.css',
+            PluginConfig::get_plugin_url() . 'assets/common/css/common.css',
             [],
             PluginConfig::get_plugin_version(),
             'all'
@@ -43,7 +43,7 @@ class Includes
         // window utilities script
 	    wp_enqueue_script_module(
             'dn-utilities-common-window-utilities',
-            PluginConfig::get_plugin_url() . 'assets/common/js/dn-utilities-common.js',
+            PluginConfig::get_plugin_url() . 'assets/common/js/common.js',
             [
                 'wp-api-request'
             ],

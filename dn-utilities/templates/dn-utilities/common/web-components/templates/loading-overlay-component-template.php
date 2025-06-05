@@ -2,9 +2,8 @@
 use DigitalNature\Utilities\Config\PluginConfig;
 ?>
 <template id="digital-nature-loading-overlay-template">
-    <link rel="stylesheet" href="<?= PluginConfig::get_plugin_url(); ?>assets/admin/css/dn-utilities-admin.css" media="all">
-    <link rel="stylesheet" href="<?= PluginConfig::get_plugin_url(); ?>assets/common/css/dn-utilities-common.css" media="all">
-    <link rel="stylesheet" href="<?= PluginConfig::get_plugin_url(); ?>assets/common/css/dn-utilities-web-components.css" media="all">
+    <link rel="stylesheet" href="<?= PluginConfig::get_plugin_url(); ?>assets/admin/css/admin.css" media="all">
+    <link rel="stylesheet" href="<?= PluginConfig::get_plugin_url(); ?>assets/common/css/common.css" media="all">
 
     <slot name="upper-text"></slot>
     <slot name="lower-text"></slot>
