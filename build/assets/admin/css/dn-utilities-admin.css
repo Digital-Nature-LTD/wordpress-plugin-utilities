@@ -1,7 +1,7 @@
 .digital-nature-admin-wrap-global {
     background: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    color: var(--colour-brand-green);
+    color: var(--dn-colour-brand-green);
 
     /** Reset wordpress styles **/
     .form-table,
@@ -17,27 +17,27 @@
 
 .digital-nature-admin-wrap {
     font-family: "Geist", sans-serif;
-    font-weight: var(--font-weight-regular);
-    max-width: var(--page-width-max);
+    font-weight: var(--dn-font-weight-regular);
+    max-width: var(--dn-page-width-max);
     margin: 0 auto;
-    font-size: var(--font-size-paragraph-small);
+    font-size: var(--dn-font-size-paragraph-small);
 
     button, input, select, textarea {
         box-sizing: border-box;
         font-family: inherit;
-        font-size: var(--font-size-paragraph-small);
+        font-size: var(--dn-font-size-paragraph-small);
         font-weight: inherit;
     }
 
     p {
-        font-size: var(--font-size-paragraph);
-        line-height: var(--line-height-standard);
+        font-size: var(--dn-font-size-paragraph);
+        line-height: var(--dn-line-height-standard);
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-weight: var(--font-weight-medium);
+        font-weight: var(--dn-font-weight-medium);
         letter-spacing: -0.04em;
-        line-height: var(--line-height-small);
+        line-height: var(--dn-line-height-small);
 
         em {
             font-family: "Instrument Serif", serif;
@@ -45,23 +45,23 @@
     }
 
     .font-size-extra-large-heading {
-        font-size: var(--font-size-extra-large-heading);
+        font-size: var(--dn-font-size-extra-large-heading);
     }
 
     .font-size-large-heading {
-        font-size: var(--font-size-large-heading);
+        font-size: var(--dn-font-size-large-heading);
     }
 
     .font-size-medium-heading {
-        font-size: var(--font-size-medium-heading);
+        font-size: var(--dn-font-size-medium-heading);
     }
 
     .font-size-small-heading {
-        font-size: var(--font-size-small-heading);
+        font-size: var(--dn-font-size-small-heading);
     }
 
     .font-size-extra-small-heading {
-        font-size: var(--font-size-extra-small-heading);
+        font-size: var(--dn-font-size-extra-small-heading);
     }
 
     .digital-nature-hero {
@@ -70,7 +70,7 @@
 
     .digital-nature-admin-wrap-content {
         position: relative;
-        background: var(--background-color-brand-grey-light);
+        background: var(--dn-background-color-brand-grey-light);
         padding: 20px;
 
         h1, h2, h3, h4, h5, h6 {
@@ -85,7 +85,7 @@
 
         div.notice {
             margin: 10px 0;
-            border-radius: var(--border-radius-small);
+            border-radius: var(--dn-border-radius-small);
 
             button.notice-dismiss {
                 margin-top: 6px;
@@ -108,8 +108,8 @@
 
         .digital-nature-admin-wrap-panel-title {
             grid-area: panel;
-            background: var(--background-color-brand-green);
-            color: var(--font-color-brand-green-light);
+            background: var(--dn-background-color-brand-green);
+            color: var(--dn-font-colour-brand-green-light);
         }
 
         .digital-nature-admin-wrap-panel-body {
@@ -123,8 +123,8 @@
         border-width: 0 0 1px 0;
         border-color: #C9C9C9;
         padding: 0 8px;
-        line-height: var(--line-height-large);
-        font-size: var(--font-size-paragraph);
+        line-height: var(--dn-line-height-large);
+        font-size: var(--dn-font-size-paragraph);
 
         &:focus {
             border-width: 0 0 1px 0;
@@ -136,23 +136,23 @@
     button:not(.notice-dismiss),
     a.button {
         display: inline-block;
-        padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+        padding: var(--dn-button-padding-vertical) var(--dn-button-padding-horizontal);
         border: 0;
-        background-color: var(--colour-brand-green);
+        background-color: var(--dn-colour-brand-green);
         color: #FFF;
-        border-radius: var(--border-radius-button);
+        border-radius: var(--dn-border-radius-button);
         cursor: pointer;
-        font-size: var(--button-font-size);
+        font-size: var(--dn-button-font-size);
 
         &:hover {
-            background-color: var(--colour-brand-green);
+            background-color: var(--dn-colour-brand-green);
             filter: brightness(120%);
         }
     }
 
     button[type=submit] {
         display: block;
-        margin-top: var(--margin-standard);
+        margin-top: var(--dn-margin-standard);
     }
 
     label {
@@ -162,11 +162,11 @@
     /** labels and the wordpress equivalent for settings */
     label,
     .form-table th {
-        font-weight: var(--font-weight-medium);
-        line-height: var(--line-height-standard);
-        width: var(--form-label-width);
-        padding: var(--padding-standard) var(--padding-small) var(--padding-standard) 0;
-        font-size: var(--font-size-paragraph);
+        font-weight: var(--dn-font-weight-medium);
+        line-height: var(--dn-line-height-standard);
+        width: var(--dn-form-label-width);
+        padding: var(--dn-padding-standard) var(--dn-padding-small) var(--dn-padding-standard) 0;
+        font-size: var(--dn-font-size-paragraph);
     }
 }
 
@@ -181,7 +181,7 @@
             .digital-nature-admin-wrap-panel-body {
                 border-right: 0;
                 border-left: 0;
-                padding: var(--page-gutter-width);
+                padding: var(--dn-page-gutter-width);
             }
         }
     }

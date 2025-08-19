@@ -41,12 +41,11 @@ class Includes
         );
 
         // window utilities script
+	    wp_enqueue_script('wp-api');
 	    wp_enqueue_script_module(
             'dn-utilities-common-window-utilities',
             PluginConfig::get_plugin_url() . 'assets/common/js/common.js',
-            [
-                'wp-api-request'
-            ],
+            [],
             PluginConfig::get_plugin_version(),
             'all'
         );
@@ -57,12 +56,6 @@ class Includes
      */
     public function enqueue_web_component_templates()
     {
-        TemplateHelper::render(
-            PluginConfig::get_plugin_name() . '/common/web-components/templates/loading-overlay-component-template.php',
-            [],
-            trailingslashit(PluginConfig::get_plugin_dir() . '/templates')
-        );
-
         TemplateHelper::render(
             PluginConfig::get_plugin_name() . '/common/web-components/templates/dismissable-message-component-template.php',
             [],

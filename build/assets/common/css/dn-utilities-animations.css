@@ -1,0 +1,13 @@
+:root {
+    --dn-animation-duration-extra-quick: 0.5s;
+    --dn-animation-duration-quick: 0.5s;
+    --dn-animation-duration-standard: 1s;
+    --dn-animation-duration-slow: 3s;
+    --dn-animation-duration-extra-slow: 5s;
+
+    --dn-animation-fade-in-out-loop: fadeIn var(--dn-animation-duration-standard) infinite alternate;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+}

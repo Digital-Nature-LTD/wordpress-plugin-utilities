@@ -126,12 +126,12 @@ digital-nature-grid-overlay {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
-    background: var(--background-color-brand-green);
+    background: var(--dn-background-color-brand-green);
 
     .digital-nature-logo {
         position: absolute;
-        top: calc(var(--page-gutter-width) - 10px);
-        left: calc(var(--page-gutter-width) - 10px);
+        top: calc(var(--dn-page-gutter-width) - 10px);
+        left: calc(var(--dn-page-gutter-width) - 10px);
         z-index: 3;
         padding: 10px;
 
@@ -165,7 +165,7 @@ digital-nature-grid-overlay {
 
     .left {
         grid-area: left;
-        padding: var(--page-gutter-width);
+        padding: var(--dn-page-gutter-width);
     }
 
     .right {
@@ -184,7 +184,7 @@ digital-nature-grid-overlay {
         overflow: hidden;
 
         h2 {
-            font-size: var(--font-size-large-heading);
+            font-size: var(--dn-font-size-large-heading);
         }
 
         &:has(digital-nature-grid-overlay) {
@@ -197,23 +197,23 @@ digital-nature-grid-overlay {
             aspect-ratio: 1 / 1;
             object-fit: cover;
             width: 100%;
-            max-width: calc((var(--page-width-full) / 2) + var(--page-gutter-width));
+            max-width: calc((var(--dn-page-width-full) / 2) + var(--dn-page-gutter-width));
         }
 
         digital-nature-grid-overlay {
             aspect-ratio: 1 / 1;
             width: calc(100% + 1px);
-            max-width: calc((var(--page-width-full) / 2) + var(--page-gutter-width) + 1px);
+            max-width: calc((var(--dn-page-width-full) / 2) + var(--dn-page-gutter-width) + 1px);
         }
     }
 
     &.digital-nature-theme-green {
         h2 {
-            color: var(--font-color-brand-green-light);
+            color: var(--dn-font-colour-brand-green-light);
         }
 
         digital-nature-grid-overlay-cell {
-            background: var(--background-color-brand-green);
+            background: var(--dn-background-color-brand-green);
         }
     }
 }
@@ -244,16 +244,47 @@ digital-nature-loading-overlay {
     &:before {
         background: transparent url(../img/brand/digital-nature-logo-stacked-mono-dark.svg) no-repeat center center;
         background-size: 100px;
+        animation: var(--dn-animation-fade-in-out-loop);
     }
 }
 
+@keyframes rotate-gradient {
+    to { transform: rotate(360deg) }
+}
 
 /*********************************
     COMPONENT - DISMISSABLE MESSAGE
  *********************************/
 digital-nature-dismissable-message {
-    &:before {
-        background: transparent url(../img/brand/digital-nature-logo-stacked-mono-dark.svg) no-repeat center center;
-        background-size: 100px;
+    --image-background-size: 1rem;
+    --message-font-size: var(--dn-font-size-paragraph);
+
+    &.success {
+        --image-background-colour: var(--dn-colour-brand-green);
+        --image-background-url: url(../img/brand/digital-nature-logo-icon-primary.svg);
+        --message-border-colour: var(--dn-colour-brand-green);
+        --message-font-colour: var(--dn-font-colour-brand-green-dark);
+    }
+
+
+    &.error {
+        --image-background-colour: var(--dn-colour-brand-red);
+        --image-background-url: url(../img/brand/digital-nature-logo-icon-mono-light.svg);
+        --message-border-colour: var(--dn-colour-brand-red);
+        --message-font-colour: var(--dn-colour-brand-red);
+    }
+
+    &.warning {
+        --image-background-colour: var(--dn-colour-brand-yellow);
+        --image-background-url: url(../img/brand/digital-nature-logo-icon-mono-dark.svg);
+        --message-border-colour: var(--dn-colour-brand-yellow);
+        --message-font-colour: var(--dn-font-colour-brand-green-dark);
+    }
+
+    &.info {
+        --image-background-colour: var(--dn-colour-brand-beige);
+        --image-background-url: url(../img/brand/digital-nature-logo-icon-mono-dark.svg);
+        --message-border-colour: var(--dn-colour-brand-beige);
+        --message-font-colour: var(--dn-font-colour-brand-green-dark);
     }
 }

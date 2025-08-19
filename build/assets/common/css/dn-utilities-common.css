@@ -1,87 +1,98 @@
 :root {
-    --colour-brand-green-light: #7DF799;
-    --colour-brand-green: #254137;
-    --colour-brand-grey-light: #F1F1F1;
-    --colour-brand-yellow: #EBEFA6;
-    --colour-brand-beige: #ECE9E4;
-    --colour-brand-red: #A83E32;
-    --colour-brand-white: #FFF;
+    --dn-colour-brand-green-light: #7DF799;
+    --dn-colour-brand-green: #254137;
+    --dn-colour-brand-grey-light: #F1F1F1;
+    --dn-colour-brand-yellow: #EBEFA6;
+    --dn-colour-brand-beige: #ECE9E4;
+    --dn-colour-brand-red: #A83E32;
+    --dn-colour-brand-white: #FFF;
+
+    --dn-color-brand-white-opaquest: rgb(from var(--dn-colour-brand-white) r g b / 7%);
+    --dn-color-brand-white-opaque: rgb(from var(--dn-colour-brand-white) r g b / 17%);
+
+
+    /* Background and Font colours */
+    --dn-background-color-brand-grey-light: var(--dn-colour-brand-grey-light);
+    --dn-background-color-brand-green: var(--dn-colour-brand-green);
+    --dn-background-color-brand-green-light: var(--dn-colour-brand-green-light);
+    --dn-background-color-brand-white: var(--dn-colour-brand-white);
+    --dn-background-color-brand-beige: var(--dn-colour-brand-beige);
+
+    --dn-font-colour-brand-green-light: var(--dn-colour-brand-green-light);
+    --dn-font-colour-brand-green-dark: var(--dn-colour-brand-green);
+    --dn-font-colour-brand-white: var(--dn-colour-brand-white);
 
 
 
-    /** Generic variables **/
-    --page-width-mobile: 320px;
-    --page-width-tablet: 768px;
-    --page-width-desktop: 1024px;
-    --page-width-widescreen: 1280px;
-    --page-width-full: 1440px;
-    --page-width-max: 1600px;
-
-    --page-gutter-width: 40px;
-
-    --border-radius-small: 8px;
-    --border-radius-medium: 14px;
-    --border-radius-large: 20px;
-    --border-radius-button: var(--border-radius-small);
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
-
-    --font-size-extra-large-heading: calc(80/16 * 1em);
-    --font-size-large-heading: calc(68/16 * 1em);
-    --font-size-medium-heading: calc(56/16 * 1em);
-    --font-size-small-heading: calc(44/16 * 1em);
-    --font-size-extra-small-heading: calc(28/16 * 1em);
-    --font-size-eyebrow: calc(14/16 * 1em);
-    --font-size-paragraph: calc(20/16 * 1em);
-    --font-size-paragraph-small: 1em;
-
-    --background-color-brand-grey-light: var(--colour-brand-grey-light);
-    --background-color-brand-green: var(--colour-brand-green);
-
-    --font-color-brand-green-light: var(--colour-brand-green-light);
-    --font-color-brand-green-dark: var(--colour-brand-green);
-
-    --padding-small: 0.5em;
-    --padding-standard: var(--font-size-paragraph);
-
-    --margin-standard: var(--font-size-paragraph);
-
-    --line-height-small: 100%;
-    --line-height-standard: 130%;
-    --line-height-large: 200%;
-
-    /** Element-specific variables */
-    --form-label-width: 200px;
-
-    --button-padding-vertical: var(--font-size-extra-small-heading);
-    --button-padding-horizontal: calc(31/16 * 1em);
-    --button-font-size: calc(18/16 * 1em);
+    /** Responsive **/
+    --dn-page-width-mobile: 20rem;
+    --dn-page-width-tablet: 48rem;
+    --dn-page-width-desktop: 64rem;
+    --dn-page-width-widescreen: 80rem;
+    --dn-page-width-full: 90rem;
+    --dn-page-width-max: 108rem;
 
 
 
+    /* Typography */
+    --dn-font-weight-regular: 400;
+    --dn-font-weight-medium: 500;
 
-    /** Web Component variables */
-    /** Dismissable message */
-    --digital-nature-dismissable-message-success-border-colour: var(--colour-brand-green);
-    --digital-nature-dismissable-message-error-border-colour: var(--colour-brand-red);
-    --digital-nature-dismissable-message-warning-border-colour: var(--colour-brand-yellow);
-    --digital-nature-dismissable-message-info-border-colour: var(--colour-brand-beige);
-    --digital-nature-dismissable-message-success-text-colour: var(--colour-brand-green);
-    --digital-nature-dismissable-message-error-text-colour: var(--colour-brand-red);
-    --digital-nature-dismissable-message-warning-text-colour: var(--colour-brand-green);
-    --digital-nature-dismissable-message-info-text-colour: var(--colour-brand-green);
+    --dn-font-size-extra-small-heading: 1.75rem;
+    --dn-font-size-small-heading: 2.75rem;
+    --dn-font-size-medium-heading: 3.5rem;
+    --dn-font-size-large-heading: 4.25rem;
+    --dn-font-size-extra-large-heading: 5rem;
+    --dn-font-size-eyebrow: 0.8rem;
+    --dn-font-size-paragraph-small: 1rem;
+    --dn-font-size-paragraph: 1.25rem;
+    --dn-font-size-paragraph-large: 1.5rem;
 
-    --digital-nature-dismissable-message-success-dot-before-colour: var(--colour-brand-green-light);
-    --digital-nature-dismissable-message-success-dot-after-colour: var(--colour-brand-white);
-    --digital-nature-dismissable-message-error-dot-before-colour: var(--colour-brand-green-light);
-    --digital-nature-dismissable-message-error-dot-after-colour: var(--colour-brand-white);
-    --digital-nature-dismissable-message-warning-dot-before-colour: var(--colour-brand-green-light);
-    --digital-nature-dismissable-message-warning-dot-after-colour: var(--colour-brand-white);
-    --digital-nature-dismissable-message-info-dot-before-colour: var(--colour-brand-green-light);
-    --digital-nature-dismissable-message-info-dot-after-colour: var(--colour-brand-white);
+    --dn-line-height-small: 100%;
+    --dn-line-height-standard: 130%;
+    --dn-line-height-large: 200%;
+
+    --dn-line-height-small-abs: 1rem;
+    --dn-line-height-standard-abs: 1.3rem;
+    --dn-line-height-large-abs: 2rem;
 
 
-    --digital-nature-dismissable-message-border-radius: var(--border-radius-small);
+
+    /* Spacing */
+    --dn-page-gutter-width: 100px;
+
+    --dn-padding-small: 0.5rem;
+    --dn-padding-standard: var(--dn-font-size-paragraph);
+    --dn-padding-large: calc(var(--dn-font-size-paragraph) * 2);
+    --dn-padding-extra-large: calc(var(--dn-font-size-paragraph) * 3);
+    --dn-padding-huge: calc(var(--dn-font-size-paragraph) * 6);
+
+    --dn-margin-small: 10px;
+    --dn-margin-standard: 20px;
+    --dn-margin-large: 40px;
+    --dn-margin-extra-large: 56px;
+    --dn-margin-huge: 125px;
+
+
+
+    /* Borders */
+    --dn-border-radius-extra-small: 0.2rem;
+    --dn-border-radius-small: 0.5rem;
+    --dn-border-radius-medium: 0.9rem;
+    --dn-border-radius-large: 1.25rem;
+    --dn-border-radius-extra-large: 3rem;
+    --dn-border-radius-button: var(--dn-border-radius-small);
+    --dn-border-radius-button-small: calc(var(--dn-border-radius-button) / 2);
+
+
+    /* Buttons */
+    --dn-button-padding-vertical: var(--dn-font-size-extra-small-heading);
+    --dn-button-padding-horizontal: calc(31/16 * 1em);
+    --dn-button-font-size: calc(18/16 * 1em);
+
+
+    /* Forms */
+    --dn-form-label-width: 12.5rem;
 }
 
 /** Reset wordpress styles **/

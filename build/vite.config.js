@@ -67,9 +67,10 @@ export default defineConfig({
                 },
             },
         },
+        assetsInlineLimit: Infinity, // inline css images
         sourcemap: 'inline',
         minify: true,
         outDir: outputDir,
-        emptyOutDir: true, // plugin handles cleaning!
+        emptyOutDir: true,
     },
 });
